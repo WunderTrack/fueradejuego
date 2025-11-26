@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuera de juego. El engaño detrás del estadio Miguel Grau</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/logo/LOGO blanco - Fuera de juego - favicon.png">
+
+    <style>
+        /* --- 1. configuración global y variables --- */
+        :root {
+            /* Nueva paleta de colores */
+            --rojo-vivido: #f31014;
+            --amarillo-claro: #fff300;
+            --amarillo-medio: #fccc03;
+            --naranja-suave: #faa007;
+            --naranja-vivido: #f64e0e;
+
+            --texto-oscuro: #212121;
+            --texto-claro: #ffffff;
+            --fondo-claro: #f8f9fa;
+            --fondo-blanco: #ffffff;
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--texto-oscuro);
+            background-color: var(--fondo-blanco);
+            padding-top: var(--header-height);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            color: var(--rojo-vivido);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--naranja-vivido);
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Secciones a todo lo ancho */
+        section {
+            padding: 80px 5%;
+        }
+        
+        /* Contenedor para centrar contenido */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        section:nth-of-type(even) {
+            background-color: var(--fondo-claro);
+        }
+
+        /* --- 2. header y navegación --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: var(--rojo-vivido);
+            color: var(--texto-claro);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--texto-claro);
+            font-weight: 700;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--amarillo-claro);
+        }
+
+        /* hamburguesa (móvil) */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--texto-claro);
+        }
+
+        /* --- 3. sección principal (hero) --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - var(--header-height));
+            text-align: center;
+            color: var(--texto-claro);
+            padding: 40px 5%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/estadio-miguel-grau.jpeg) no-repeat center center/cover;
+        }
+
+        .hero-logo {
+            height: 300px; 
+            width: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); 
+        }
+
+        .hero p {
+            font-size: 1.5rem; 
+            max-width: 800px;
+            line-height: 1.7;
+            font-weight: 700;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        /* --- 4. Estilos Multimedia --- */
+        
+        /* Contenedor Video Reportaje */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Proporción 16:9 */
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Estilos para la cuadrícula de episodios del pódcast --- */
+        .podcast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .episode-card {
+            background-color: var(--fondo-blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra-suave);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 4px solid var(--naranja-vivido);
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .episode-cover {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            background-color: #f0f0f0;
+        }
+
+        .episode-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .episode-content h3 {
+            font-size: 1.2rem;
+            color: var(--rojo-vivido);
+            margin-bottom: 10px;
+        }
+
+        /* --- Texto justificado en las tarjetas de episodio --- */
+        .episode-content p {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            text-align: justify; 
+        }
+
+        .episode-player {
+            margin-top: auto;
+        }
+        
+        audio {
+            width: 100%;
+            outline: none;
+            height: 40px;
+        }
+
+        /* Contenedor Juego */
+        .game-wrapper {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 900px; /* Altura fija para el juego */
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .btn-game {
+            display: inline-block;
+            background-color: var(--naranja-vivido);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(246, 78, 14, 0.4);
+        }
+        
+        .btn-game:hover {
+            background-color: var(--rojo-vivido);
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+        /* --- 5. Visor de Cómic --- */
+        .comic-viewer {
+            max-width: 450px; 
+            margin: 30px auto;
+            position: relative;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .comic-page {
+            display: none;
+            width: 100%;
+        }
+
+        .comic-page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .comic-page img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .comic-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            color: #fff;
+        }
+
+        .comic-btn {
+            background-color: var(--naranja-vivido);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .comic-btn:hover {
+            background-color: var(--rojo-vivido);
+        }
+
+        .comic-btn:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .page-indicator {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+
+        /* --- 6. sección línea de tiempo --- */
+        #linea-tiempo {
+            background-color: var(--fondo-claro);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 100%; 
+            margin: 40px auto;
+            padding: 20px 0;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: var(--naranja-vivido);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -12px;
+            background-color: var(--fondo-blanco);
+            border: 5px solid var(--rojo-vivido);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-year {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--rojo-vivido);
+            margin-bottom: 10px;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--fondo-blanco);
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+            position: relative;
+            text-align: left;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--naranja-vivido);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 100%;
+            text-align: justify; 
+        }
+        
+        .timeline-content ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            text-align: left;
+            max-width: 100%;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--rojo-vivido);
+            color: var(--texto-claro);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-link:hover {
+            background-color: var(--naranja-vivido);
+        }
+
+        /* --- 6.1. Galería de imágenes de la línea de tiempo --- */
+        .timeline-image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .timeline-image-gallery figure {
+            flex: 1 1 120px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .timeline-image-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            border: 1px solid #ddd;
+        }
+        .timeline-image-gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .timeline-image-gallery figcaption {
+            font-size: 0.8rem;
+            color: #555;
+            text-align: center;
+            margin-top: 5px;
+            word-break: break-word;
+        }
+
+        /* --- 7. footer --- */
+        footer {
+            background-color: var(--rojo-vivido);
+            color: var(--texto-claro);
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: var(--amarillo-medio);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--amarillo-medio);
+            padding-bottom: 5px;
+        }
+        
+        .footer-cta {
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin: 10px 0 15px 0;
+            max-width: 100%;
+            padding: 0;
+        }
+        
+        .footer-section a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--amarillo-claro);
+        }
+
+        /* --- NUEVO: Estilos del formulario de comentarios --- */
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px dashed var(--amarillo-claro);
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .comment-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .comment-form button {
+            background-color: var(--amarillo-medio);
+            color: var(--texto-oscuro);
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .comment-form button:hover {
+            background-color: var(--amarillo-claro);
+            transform: scale(1.02);
+        }
+
+
+        .footer-credits {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* --- 8. responsive (móvil) --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.8rem; }
+            .hero p { font-size: 1.2rem; }
+            .hero-logo { height: 180px; }
+
+            .menu-toggle { display: block; }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--rojo-vivido);
+                border-top: 1px solid var(--amarillo-medio);
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { margin: 0; width: 100%; text-align: center; }
+            .nav-menu a { display: block; padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            
+            .timeline-container::before { left: 20px; }
+            .timeline-item { width: 100%; padding-right: 10px; }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) { left: 0; text-align: left; padding-left: 60px; }
+            .timeline-item::after,
+            .timeline-item:nth-child(even)::after { left: 8px; }
+            
+            .footer-content { flex-direction: column; align-items: center; text-align: center; }
+            .footer-section { width: 100%; max-width: 400px; }
+            
+            .game-frame { height: 400px; } /* Ajuste de altura del juego en móviles */
+        }
+        
+        /* --- 9. Modal (Lightbox) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 700px; }
+        #modal-caption { margin: 10px auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; font-size: 1.1rem; }
+        .modal-content, #modal-caption { animation-name: zoom; animation-duration: 0.6s; }
+        @keyframes zoom { from {transform: scale(0.1)} to {transform: scale(1)} }
+        .modal-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; }
+        .modal-close:hover, .modal-close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+        @media (max-width: 700px){ .modal-content { width: 95%; } }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="assets/logo/LOGO blanco - Fuera de juego - sin margen.png" alt="Logo Fuera de Juego">
+        </div>
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#reportaje">Reportaje</a></li>
+                <li><a href="#podcast">Pódcast</a></li>
+                <li><a href="#videojuego">Gamificación</a></li>
+                <li><a href="#comic">Cómic</a></li>
+                <li><a href="#linea-tiempo">Línea de tiempo</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+    </header>
+
+    <main>
+
+        <section id="inicio" class="hero">
+            <img src="assets/logo/LOGO transparente - Fuera de juego - sin margen.png" alt="Logo Fuera de Juego" class="hero-logo">
+            <p>Esta es la historia de una obra que exige ser contada y que no piensa quedarse fuera de juego.</p>
+        </section>
+
+        <section id="reportaje">
+            <div class="container">
+                <h2>📰 Reportaje</h2>
+                <p>Descubre las decisiones ocultas, los intereses cruzados y las promesas incumplidas que marcaron la obra del Estadio Miguel Grau, donde se revela por qué, en esta historia, los verdaderos protagonistas, los piuranos, quedaron fuera del juego.</p>
+                
+                <div class="video-wrapper">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TFE7CMRswx8?si=-z2qsdeTe4zU3QMb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="podcast">
+            <div class="container">
+                <h2>🎙 Pódcast – “Sin pista”</h2>
+                <p>Escucha las voces de quienes sienten la pérdida de la pista atlética del estadio Miguel Grau. Cada testimonio resuena como un eco de identidad, memoria y resistencia.</p>
+                
+                <div class="podcast-grid">
+                    
+                    <div class="episode-card">
+                        <img src="assets/images/ep 1 - cover.png" alt="Portada Episodio 1" class="episode-cover">
+                        <div class="episode-content">
+                            <h3>Episodio 1: la voz que corre por todos</h3>
+                            <p>El Estadio Miguel Grau cerró, pero una voz se alzó, la de Godofredo Calle Ruiz. Descubre cómo este defensor del deporte y miembro de Asociación Civil Región Piura, presentó una denuncia para que los atletas recuperen su pista.</p>
+                            <div class="episode-player">
+                                <audio controls>
+                                    <source src="assets/audio/Sin pista - episodio 1.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <img src="assets/images/ep 2 - cover.png" alt="Portada Episodio 2" class="episode-cover">
+                        <div class="episode-content">
+                            <h3>Episodio 2: carrera interrumpida</h3>
+                            <p>La pista atlética era su segunda casa, hasta que se convirtió en polvo. Karla Labrín Celi, nos cuenta cómo ha tenido que entrenar bajo la incertidumbre.</p>
+                            <div class="episode-player">
+                                <audio controls>
+                                    <source src="assets/audio/Sin pista - episodio 2.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <img src="assets/images/ep 3 - cover.png" alt="Portada Episodio 3" class="episode-cover">
+                        <div class="episode-content">
+                            <h3>Episodio 3: sobre ruinas</h3>
+                            <p>Conoce a Sebastián Mena Troncos, un deportista aficionado al fútbol y al atletismo, que se negó a parar. Una historia de pasión que ni el cierre del estadio pudo detener.</p>
+                            <div class="episode-player">
+                                <audio controls>
+                                    <source src="assets/audio/Sin pista - episodio 3.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <img src="assets/images/ep 4 - cover.png" alt="Portada Episodio 4" class="episode-cover">
+                        <div class="episode-content">
+                            <h3>Episodio 4: sin línea de meta</h3>
+                            <p>Álvaro Miranda Arévalo, atleta reconocido y excampeón, reflexiona sobre cómo la pérdida de la pista atlética dejó a muchos atletas sin su punto de partida.</p>
+                            <div class="episode-player">
+                                <audio controls>
+                                    <source src="assets/audio/Sin pista - episodio 4.mp3" type="audio/mpeg">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="videojuego">
+            <div class="container">
+                <h2>🕹 Experiencia periodística gamificada – “Legado en ruinas”</h2>
+                <p>Toma el lugar de quienes deben reconstruir el Estadio Miguel Grau y enfréntate a las mismas decisiones que marcaron su destino. Cada elección que hagas puede cambiar el rumbo… o repetir los mismos errores. ¿Qué harás tú?</p>
+                
+                <div class="game-wrapper">
+                    <iframe src="https://legado-en-ruinas-piura.web.app/" class="game-frame" title="Juego Legado en Ruinas" loading="lazy"></iframe>
+                </div>
+                
+                <div style="text-align: center;">
+                    <a href="https://legado-en-ruinas-piura.web.app/" target="_blank" class="btn-game">Gamificación en pantalla completa</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="comic">
+            <div class="container">
+                <h2>📚 Cómic – “Duplicados”</h2>
+                <p>Acompaña a Roberto, vecino del estadio, en su búsqueda por respuestas. Una historia gráfica sobre la vida cotidiana entre polvo, ruido y promesas incumplidas.</p>
+                
+                <div class="comic-viewer" id="comic-viewer">
+                    <div class="comic-page active">
+                        <img src="assets/images/comic/comic - 1.jpg" alt="Página 1 del cómic Duplicados">
+                    </div>
+                    <div class="comic-page">
+                        <img src="assets/images/comic/comic - 2.jpg" alt="Página 2 del cómic Duplicados">
+                    </div>
+                    <div class="comic-page">
+                        <img src="assets/images/comic/comic - 3.jpg" alt="Página 3 del cómic Duplicados">
+                    </div>
+                    <div class="comic-page">
+                        <img src="assets/images/comic/comic - 4.jpg" alt="Página 4 del cómic Duplicados">
+                    </div>
+                    <div class="comic-page">
+                        <img src="assets/images/comic/comic - 5.jpg" alt="Página 5 del cómic Duplicados">
+                    </div>
+                                        <div class="comic-page">
+                        <img src="assets/images/comic/comic - 6.jpg" alt="Página 6 del cómic Duplicados">
+                    </div>
+                                        <div class="comic-page">
+                        <img src="assets/images/comic/comic - 7.jpg" alt="Página 7 del cómic Duplicados">
+                    </div>
+                                        <div class="comic-page">
+                        <img src="assets/images/comic/comic - 8.jpg" alt="Página 8 del cómic Duplicados">
+                    </div>
+                                        <div class="comic-page">
+                        <img src="assets/images/comic/comic - 9.jpg" alt="Página 9 del cómic Duplicados">
+                    </div>
+                                        <div class="comic-page">
+                        <img src="assets/images/comic/comic - 10.jpg" alt="Página 10 del cómic Duplicados">
+                    </div>
+
+                    <div class="comic-controls">    
+                        <button class="comic-btn" id="prev-page" disabled>❮ Anterior</button>
+                        <span class="page-indicator">Página <span id="current-page">1</span> de <span id="total-pages">10</span></span>
+                        <button class="comic-btn" id="next-page">Siguiente ❯</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="linea-tiempo">
+            <div class="container">
+                <h2>🧭 Línea de tiempo</h2>
+                
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1956</div>
+                        <div class="timeline-content">
+                            <h3>Planificación de la construcción del estadio Miguel Grau</h3>
+                            <p>En 1956, Manuel Prado Ugarteche, presidente del Perú en ese entonces, decidió la construcción de un recinto deportivo en el norte del Perú, más específicamente en la ciudad de Piura. Su intención era aumentar el interés de la población piurana para con el deporte. Es así como se da inicio al proyecto de construcción del Estadio Miguel Grau.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/1956 Manuel Prado y Ugarteche.jpg" alt="Manuel Prado y Ugarteche">
+                                    <figcaption>Manuel Prado Ugarteche</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="assets/timeline/1956 Maqueta del estadio Miguel Grau de Piura.jfif" alt="Maqueta del estadio Miguel Grau de Piura">
+                                    <figcaption>Maqueta del estadio Miguel Grau de Piura</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1958</div>
+                        <div class="timeline-content">
+                            <h3>Inauguración del Estadio Miguel Grau</h3>
+                            <p>El Estadio Miguel Grau de Piura se presenta como una infraestructura de profundo valor cívico y deportivo, símbolo del orgullo regional. El nombre rinde homenaje al "Peruano del Milenio", Miguel Grau Seminario, natural de Piura, cuyo legado de valor y compromiso con la patria sigue inspirando a las nuevas generaciones. La construcción de este recinto respondió a la imperiosa necesidad de dotar a la región de un espacio con la magnitud suficiente para albergar eventos de carácter nacional e, incipientemente, internacional.</p>
+                            <p>La inauguración del estadio se llevó a cabo el 7 de junio de 1958. Esta apertura no fue un evento meramente local, sino una celebración cívico-deportiva de alcance nacional. La jornada inaugural contó con dos encuentros: el partido entre el Club Atlético Grau y el Club Indoamericano, y un suceso de trascendencia histórica: la realización del primer clásico del fútbol peruano disputado fuera de la capital, Lima. Este encuentro entre Universitario y Alianza Lima entre Universitario y Alianza Lima terminó con un marcador de 1-1.</p>
+                            <p>La elección de Piura para albergar tal evento consolidó al Estadio Miguel Grau, desde su origen, como un escenario de alta relevancia y un punto de inflexión en la descentralización de los grandes acontecimientos deportivos peruanos. Aunque la capacidad inicial precisa no se detalla en las fuentes, la magnitud del evento inaugural confirma que el estadio fue diseñado para un aforo considerable, acorde con las aspiraciones de una capital regional. Con una capacidad aproximada de entre 10,000 y 20,000 espectadores, el Miguel Grau se consolidó rápidamente como el primer gran recinto deportivo del norte del Perú.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/1958 Estadio tras reciente construcción.jfif" alt="Estadio tras reciente construcción">
+                                    <figcaption>Estadio tras reciente construcción</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="assets/timeline/1958 Noticia sobre inauguración del estadio.jpg" alt="Noticia sobre inauguración del estadio">
+                                    <figcaption>Noticia sobre inauguración del estadio</figcaption>
+                                </figure>
+                            </div>
+                            
+                            <a href="https://www.youtube.com/shorts/LR-fpWAsR2Q?app=desktop" class="timeline-link" target="_blank" rel="noopener noreferrer">Ver video de inauguración</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1960 - 1990</div>
+                        <div class="timeline-content">
+                            <h3>Eventos deportivos</h3>
+                            <p>Durante décadas, los registros indican que el estadio se utilizó principalmente para la participación del Club Atlético Grau en torneos regionales y zonales, además de la presencia de finales departamentales en la década de 1990. Por ejemplo, en 1997, el Atlético Grau campeonó en el torneo departamental. Estas afirmaciones están respaldadas por la Liga Departamental y registros de Copa Perú y cronologías del club.</p>
+                            <p>Entre 1960 y 1980, el club de la ciudad participó en ediciones del Campeonato Descentralizado. Esta información es respaldada por alineaciones y resultados de la época, que indican que este estadio fue sede de partidos del torneo nacional. Esto consolidó al estadio como sede de fútbol profesional en la región.</p>
+                            <p>Entre 1980 y 1990, el estadio mantuvo su rol para partidos de liga regional, provinciales y ocasionalmente para eventos escolares o provinciales de atletismo. La documentación digital es fragmentaria; la presencia del estadio como centro deportivo regional en esta década está recogida en crónicas locales y en la historia del club.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/1960 - 1990 Audiencia del estadio.jfif" alt="Audiencia del estadio">
+                                    <figcaption>Audiencia del estadio</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/1960 - 1990 Partidos del Atlético Grau en el estadio.webp" alt="Partidos del Atlético Grau en el estadio">
+                                    <figcaption>Partidos del Atlético Grau en el estadio</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/1960 - 1990 Partidos del Grau en el estadio pt 2.jfif" alt="Partidos del Grau en el estadio pt 2">
+                                    <figcaption>Partidos del Grau en el estadio pt 2</figcaption>
+                                </figure>
+                            </div>
+
+                            <a href="https://atleticograu.org/historia/#" class="timeline-link" target="_blank" rel="noopener noreferrer">Ver historia del club</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2002 / 2003</div>
+                        <div class="timeline-content">
+                            <h3>Remodelación de cara a próximos eventos internacionales</h3>
+                            <p>La remodelación iniciada en 2002 y culminada en 2003, coincide con la designación de Piura como sede de la Copa América 2004, la cual ocurriría 18 meses después. Esto sugiere fuertemente que las obras ejecutadas en 2002 fueron parte de una inversión estratégica destinada a cumplir con los estándares base exigidos por la CONMEBOL y la FIFA. Esta primera modernización fue fundamental para asegurar la proyección internacional inmediata del recinto.</p>
+                            <p>Con una inversión cercana al millón y medio de dólares, el gobierno peruano emprendió un proyecto el cual, entre otras cosas se destaca lo siguiente:</p>
+                            <ul>
+                                <li>Ampliación de la capacidad del estadio.</li>
+                                <li>Instalación de iluminación artificial.</li>
+                                <li>Construcción de palcos vip.</li>
+                                <li>Construcción de cabinas de transmisión.</li>
+                                <li>Nuevos camerinos para los jugadores.</li>
+                                <li>Nuevos baños para los espectadores.</li>
+                                <li>Instalación del césped artificial.</li>
+                                <li>Instalación de un marcador electrónico.</li>
+                                <li>Renovación del perímetro del estadio.</li>
+                                <li>Otros cambios menores.</li>
+                            </ul>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/2002 - 2003 Estadio de Piura antes de remodelación.jpg" alt="Estadio de Piura antes de remodelación">
+                                    <figcaption>Estadio de Piura antes de remodelación</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/2002 - 2003 Estadio de Piura elegida para el Mundial sub 17.jpg" alt="Estadio de Piura elegida para el Mundial sub 17">
+                                    <figcaption>Estadio de Piura elegida para el Mundial sub 17</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2004</div>
+                        <div class="timeline-content">
+                            <h3>Copa América Perú 2004</h3>
+                            <p>El año 2004 marcó el ascenso definitivo del Estadio Miguel Grau al ámbito deportivo continental. Piura fue seleccionada como una de las seis sedes de la Copa América, un evento que requirió adecuaciones significativas para cumplir con los requisitos de la CONMEBOL.</p>
+                            <p>El Miguel Grau albergó dos encuentros correspondientes al Grupo B de la competición. El primer partido fue el 13 de julio de 2004, donde la selección de México se impuso 2-1 a Ecuador, atrayendo una asistencia reportada de 21,000 espectadores. Adicionalmente, el estadio fue escenario del enfrentamiento entre Argentina y Uruguay, con un resultado de 4-2 a favor de la albiceleste. Ser anfitrión de un torneo continental, presenciando duelos de alta rivalidad entre potencias futbolísticas como Argentina y México, solidificó la reputación del Miguel Grau y ubicó a Piura de manera permanente en el mapa deportivo internacional.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/2004 Audiencia del estadio en plena Copa América 2004.jpg" alt="Audiencia del estadio en plena Copa América 2004">
+                                    <figcaption>Audiencia del estadio en plena Copa América 2004</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/2004 Estadio preparado para recibir la Copa América 2004.jfif" alt="Estadio preparado para recibir la Copa América 2004">
+                                    <figcaption>Estadio preparado para recibir la Copa América 2004</figcaption>
+                                </figure>
+                            </div>
+
+                            <a href="http://www.copaamerica.8m.net/photo4.html" class="timeline-link" target="_blank" rel="noopener noreferrer">Ver fotos de archivo</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2005</div>
+                        <div class="timeline-content">
+                            <h3>Mundial Sub 17 Perú 2005</h3>
+                            <p>Menos de un año después de la Copa América, el estadio fue nuevamente seleccionado para ser sede de otro evento de élite: la Copa Mundial Sub-17 de la FIFA, celebrada en Perú del 16 de septiembre al 2 de octubre de 2005. Este torneo sirvió como una plataforma para futuras estrellas mundiales y reafirmó la capacidad de Piura para manejar la logística exigida por la FIFA. Piura fue una sede clave para la fase de grupos, albergando partidos de los Grupos A (conformado por Perú, Ghana, China R.P., Costa Rica) y D (que incluía a Holanda, Qatar, Brasil, y Gambia).</p>
+                            <p>Uno de los partidos más destacados de este torneo, celebrado en el Miguel Grau, fue la única derrota que sufrió la selección de México, que eventualmente se coronaría campeona del mundo Sub-17. El 22 de septiembre de 2005, en un encuentro del Grupo B, México cayó 1-2 ante Turquía, con goles de Guzmán para México, y Yilmaz y Caner Erkin para los europeos. Este hecho histórico subraya la relevancia del estadio como testigo de momentos definitorios en la carrera de jóvenes promesas del fútbol internacional. También fue sede del partido entre Gambia y Qatar, en el que los primeros saldrían vencedores con un marcador final de 3-1.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/2005 Estadio de Piura en pleno Mundial sub 17 2005.jpg" alt="Estadio de Piura en pleno Mundial sub 17 2005">
+                                    <figcaption>Estadio de Piura en pleno Mundial sub 17 2005</figcaption>
+                                </figure>
+                            </div>
+
+                            <a href="https://www.youtube.com/watch?v=vtGwX_bo93U" class="timeline-link" target="_blank" rel="noopener noreferrer">Ver resumen del partido</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-content">
+                            <h3>Cierre del estadio Miguel Grau</h3>
+                            <p>El 13 de marzo de 2015 la Municipalidad Distrital de Castilla ordenó la clausura temporal del Estadio Miguel Grau «para preservar la vida humana», porque el recinto no contaba con el certificado de Defensa Civil (INDECI) y además durante un encuentro previo se desplomaron paredes. A partir de esa resolución se prohibieron espectáculos públicos hasta contar con la certificación correspondiente.</p>
+                            <p>Finalmente, el 13 de marzo de 2015, el estadio fue clausurado de manera oficial por la falta de certificado de Defensa Civil e INDECI y por problemas estructurales detectados, como el desplome de muros. La clausura fue dictada por la Municipalidad de Castilla y anunciada por medios nacionales.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/2015 Estadio Miguel Grau en abandono.jpg" alt="Estadio Miguel Grau en abandono">
+                                    <figcaption>Estadio Miguel Grau en abandono</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/2015 Estadio post cierre.jpeg" alt="Estadio post cierre">
+                                    <figcaption>Estadio post cierre</figcaption>
+                                </figure>
+                            </div>
+                            
+                            <a href="#" class="timeline-link" target="_blank" rel="noopener noreferrer">Noticia de clausura</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-content">
+                            <h3>Apertura para partidos puntuales</h3>
+                            <p>En 2018 se jugaron partidos oficiales en el Estadio Miguel Grau. El ejemplo más citado y documentado es el partido Atlético Grau 1–1 Carlos A. Mannucci, realizado el 1 de noviembre de 2018 por los cuartos de final del hexagonal de la Segunda División, cuyo escenario figura como «Estadio Miguel Grau de Piura» en crónicas y notas deportivas nacionales. Es decir: aunque el estadio había sido clausurado en 2015, hubo autorizaciones puntuales o uso parcial del recinto para encuentros oficiales en 2018. Las crónicas deportivas de ese partido lo registran explícitamente.</p>
+                            <p>Partidos documentados:</p>
+                            <ul>
+                                <li>Domingo 27 de mayo de 2018: Atlético Grau vs Deportivo Hualgayoc en el Estadio Miguel Grau de Piura.</li>
+                                <li>Domingo 10 de junio de 2018: Atlético Grau vs Alianza Atlético en el Estadio Miguel Grau de Piura.</li>
+                                <li>Jueves 24 de junio de 2018: Atlético Grau vs Willy Serrato.</li>
+                                <li>Miércoles o jueves 1 de noviembre de 2018: Atlético Grau vs Carlos A. Mannucci en el Estadio Miguel Grau de Piura, por los cuartos de final de la Segunda División, según programación oficial.</li>
+                            </ul>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/2018 Afición del Atlético Grau en partido de 2018.jpg" alt="Afición del Atlético Grau en partido de 2018">
+                                    <figcaption>Afición del Atlético Grau en partido de 2018</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/2018 Partido entre el Atlético Grau y el Hualgayoc en el estadio Miguel Grau.jfif" alt="Partido entre el Atlético Grau y el Hualgayoc en el estadio Miguel Grau">
+                                    <figcaption>Partido entre el Atlético Grau y el Hualgayoc en el estadio Miguel Grau</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3>Comienzo del proyecto de remodelación / reconstrucción del estadio Miguel Grau</h3>
+                            <p>Ante el clamor popular y el evidente deterioro, el Gobierno Regional de Piura (GORE) impulsó un proyecto de mejoramiento integral con el objetivo de transformar el estadio en un espacio moderno y funcional, apto para eventos de alto nivel nacional e internacional.</p>
+                            <p>El proceso formal de rescate incluyó la aprobación del Expediente Técnico para la remodelación y la firma de un anhelado contrato para la modernización. Adicionalmente, el GORE firmó un convenio con el Instituto Peruano del Deporte (IPD) para la gestión y modernización del estadio por un periodo de diez años.</p>
+                            <p>La modernización del Estadio Miguel Grau ha sido diseñada para cumplir con las exigencias técnicas de la FIFA y la CONMEBOL, asegurando su capacidad para albergar torneos de gran envergadura.</p>
+                            <p>El proyecto contempla una capacidad total de 20,200 butacas, además de la instalación de tribunas techadas. El campo de juego será dotado de césped tipo Bermuda, considerado ideal para encuentros de alta competencia y adecuado para el clima piurano. En términos tecnológicos, la obra incluirá la implementación de un sistema VAR, junto con camerinos modernos, sala de prensa, y, crucialmente, la construcción de un pozo exclusivo de agua para garantizar el riego del césped y el abastecimiento de los servicios internos, asegurando la autosuficiencia hídrica del complejo.</p>
+                            <p>Tras la aprobación del expediente técnico y la firma del contrato, el Gobierno Regional de Piura procedió a la entrega del terreno al consorcio encargado para la colocación de la primera piedra y el inicio de los trabajos. Oficialmente, la remodelación comenzó con labores de desmontaje y demolición de las estructuras existentes. El plazo de ejecución establecido para la culminación de la obra es de 420 días calendario. La finalización de esta obra se espera que no solo beneficie al deporte, sino que también dinamice la economía regional y fortalezca el orgullo de los piuranos.</p>
+                            
+                            <div class="timeline-image-gallery">
+                                <figure>
+                                    <img src="assets/timeline/2025 Buena pro para la obra del Estadio Miguel Grau.avif" alt="Buena pro para la obra del Estadio Miguel Grau">
+                                    <figcaption>Buena pro para la obra del Estadio Miguel Grau</figcaption>
+                                </figure>
+                                 <figure>
+                                    <img src="assets/timeline/2025 Maqueta de la reconstrucción del estadio Miguel Grau de Piura.jfif" alt="Maqueta de la reconstrucción del estadio Miguel Grau de Piura">
+                                    <figcaption>Maqueta de la reconstrucción del estadio Miguel Grau de Piura</figcaption>
+                                </figure>
+                                <figure>
+                                    <img src="assets/timeline/2025 Obras comenzadas en la reconstrucción del estadio.jfif" alt="Obras comenzadas en la reconstrucción del estadio">
+                                    <figcaption>Obras comenzadas en la reconstrucción del estadio</figcaption>
+                                </figure>
+                            </div>
+                            
+                            <a href="https://www.infobae.com/peru/2025/06/13/estadio-miguel-grau-sera-reconstruido-este-es-el-megaproyecto-deportivo-de-s-200-millones-en-piura/#:~:text=Historia%20del%20estadio%20Miguel%20Grau&text=Su%20construcci%C3%B3n%20fue%20impulsada%20en,de%20encuentro%20y%20cohesi%C3%B3n%20social.&text=Su%20salto%20a%20la%20escena,de%20espectadores%20y%20medios%20internacionales." class="timeline-link" target="_blank" rel="noopener noreferrer">Leer noticia completa</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Plataformas</h3>
+                <a href="https://www.tiktok.com/@fueradejuego_2025?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
+                <a href="https://youtube.com/@fueradejuegopiura?si=WPgCQUaa32rRDZWl" target="_blank">YouTube</a>
+                <a href="https://x.com/FueraDeJuegoPe" target="_blank">X</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Deja tu comentario</h3>
+                <p class="footer-cta">¡Queremos saber tu opinión! Participa en la conversación.</p>
+                <form action="https://formspree.io/f/PON_TU_ID_AQUI" method="POST" class="comment-form">
+                    <input type="text" name="nombre" placeholder="Tu nombre (opcional)">
+                    <textarea name="mensaje" placeholder="Escribe tu comentario aquí..." required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-credits">
+            © <span id="current-year"></span> Proyecto Fuera de Juego. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="modal-caption"></div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. script para el menú hamburguesa (móvil) ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // --- 2. script para cerrar el menú al hacer clic en un enlace (móvil) ---
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // --- 3. script para el año dinámico en el footer ---
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- 4. script para la animación de la línea de tiempo ---
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            const observerOptions = {
+                root: null, // usa el viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% del item debe estar visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Dejar de observar una vez que es visible
+                    }
+                });
+            };
+
+            const timelineObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+            timelineItems.forEach(item => {
+                timelineObserver.observe(item);
+            });
+            
+            // --- 5. script para el modal de la línea de tiempo ---
+            const modal = document.getElementById("image-modal");
+            const modalImg = document.getElementById("modal-image");
+            const modalCaption = document.getElementById("modal-caption");
+            const closeModal = document.querySelector(".modal-close");
+
+            document.querySelectorAll('.timeline-image-gallery img').forEach(img => {
+                img.onclick = function() {
+                    // Busca el <figcaption> hermano
+                    const captionText = this.nextElementSibling ? this.nextElementSibling.textContent : this.alt;
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    modalCaption.textContent = captionText;
+                }
+            });
+
+            const hideModal = () => {
+                modal.style.display = "none";
+            }
+
+            // Cierra el modal al hacer clic en la 'X'
+            closeModal.onclick = hideModal;
+
+            // Cierra el modal al hacer clic fuera de la imagen (en el fondo)
+            modal.onclick = function(e) {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            }
+
+            // --- 6. Script para que solo suene un audio a la vez ---
+            const audioPlayers = document.querySelectorAll('audio');
+
+            audioPlayers.forEach(player => {
+                player.addEventListener('play', function() {
+                    // Pausar todos los demás audios
+                    audioPlayers.forEach(otherPlayer => {
+                        if (otherPlayer !== player) {
+                            otherPlayer.pause();
+                        }
+                    });
+                });
+            });
+            
+            // --- 7. Script del visor de cómic ---
+            let currentPage = 0;
+            const pages = document.querySelectorAll('.comic-page');
+            const prevBtn = document.getElementById('prev-page');
+            const nextBtn = document.getElementById('next-page');
+            const pageIndicator = document.getElementById('current-page');
+            const totalPages = document.getElementById('total-pages');
+
+            if (pages.length > 0) {
+                // Inicializar total de páginas
+                totalPages.textContent = pages.length;
+
+                function updateViewer() {
+                    // Ocultar todas
+                    pages.forEach(page => page.classList.remove('active'));
+                    // Mostrar actual
+                    pages[currentPage].classList.add('active');
+                    // Actualizar número
+                    pageIndicator.textContent = currentPage + 1;
+                    
+                    // Actualizar botones
+                    prevBtn.disabled = currentPage === 0;
+                    nextBtn.disabled = currentPage === pages.length - 1;
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    if (currentPage > 0) {
+                        currentPage--;
+                        updateViewer();
+                    }
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentPage < pages.length - 1) {
+                        currentPage++;
+                        updateViewer();
+                    }
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
